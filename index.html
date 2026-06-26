@@ -369,7 +369,7 @@
         <li><b>3.</b> We meet, shoot, and you get your photos</li>
       </ul>
     </div>
-    <form id="bookForm">
+   <form id="bookForm" action="https://formspree.io/f/mpqgddoa" method="POST">
       <div class="field">
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" required>
@@ -404,7 +404,7 @@
         <textarea id="msg" name="msg" placeholder="Occasion, ideas, questions…"></textarea>
       </div>
       <button type="submit" class="submit">Send request</button>
-      <p class="form-hint">Opens your email app to send — no account needed.</p>
+      <p class="form-hint">I'll reply to confirm your booking within 24 hours.</p>
     </form>
   </div>
 </section>
@@ -450,28 +450,32 @@
     [...sel.options].forEach(o=>{if(o.value===v||o.text===v)sel.value=o.value});
   }));
 
-  // booking form -> mailto
-  document.getElementById('bookForm').addEventListener('submit',e=>{
+ // booking form -> Formspree
+  document.getElementById('bookForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const f=e.target;
-    const subject=`Photoshoot request — ${f.pkg.value}`;
-    const body=
-`Hi Mikiale,
-
-I'd like to request a photoshoot.
-
-Name: ${f.name.value}
-Email: ${f.email.value}
-Preferred date: ${f.date.value||'(flexible)'}
-Package: ${f.pkg.value}
-People: ${f.people.value}
-
-Message:
-${f.msg.value||'(none)'}
-`;
-    window.location.href=`mailto:mikialegebreyesus@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const btn=f.querySelector('.submit');
+    const original=btn.textContent;
+    btn.textContent='Sending…';btn.disabled=true;
+    try{
+      const res=await fetch(f.action,{
+        method:'POST',
+        body:new FormData(f),
+        headers:{'Accept':'application/json'}
+      });
+      if(res.ok){
+        f.reset();
+        btn.textContent='Request sent ✓';
+        setTimeout(()=>{btn.textContent=original;btn.disabled=false;},4000);
+      }else{
+        btn.textContent='Something went wrong — try again';
+        btn.disabled=false;
+      }
+    }catch(err){
+      btn.textContent='Network error — try again';
+      btn.disabled=false;
+    }
   });
-
   // lightbox
   const cells=[...document.querySelectorAll('.cell img')];
   const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikiale Gebreyesus — Photographer in Florence</title>
+<meta name="description" content="Documentary and portrait photographer based in Florence. Book a portrait photoshoot at the city's most iconic locations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe9df;
+    --paper-2:#e7dfd2;
+    --ink:#231d18;
+    --ink-soft:#5a5048;
+    --terra:#a8442a;
+    --terra-deep:#7e3320;
+    --line:#cdc2b1;
+    --shadow:rgba(35,29,24,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:400;line-height:1.05}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(239,233,223,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:'Fraunces',serif;font-size:20px;letter-spacing:.01em;font-weight:500}
+  .brand span{color:var(--terra)}
+  .nav-links{display:flex;gap:30px;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--terra)}
+  .nav-cta{
+    font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--ink);border-radius:999px;
+    padding:9px 18px;text-decoration:none;transition:.2s;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  .menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink)}
+
+  /* ---- hero ---- */
+  .hero{position:relative;padding:60px 0 40px}
+  .hero-eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);
+    margin-bottom:22px;display:flex;align-items:center;gap:14px;
+  }
+  .hero-eyebrow::before{content:"";width:42px;height:1px;background:var(--terra)}
+  .hero h1{
+    font-size:clamp(44px,8vw,108px);
+    letter-spacing:-.02em;font-weight:300;
+  }
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero-sub{
+    max-width:520px;margin-top:26px;font-size:19px;color:var(--ink-soft);
+  }
+  .hero-frame{
+    margin-top:46px;position:relative;
+    aspect-ratio:16/8;overflow:hidden;border-radius:3px;
+    box-shadow:0 30px 60px -30px var(--shadow);
+  }
+  .hero-frame img{transform:scale(1.02)}
+  .hero-tag{
+    position:absolute;left:20px;bottom:18px;
+    background:rgba(35,29,24,.62);color:#f3ede2;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;backdrop-filter:blur(4px);
+  }
+
+  /* ---- section frame ---- */
+  section{padding:88px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+  .sec-num{font-family:'Fraunces',serif;font-size:15px;color:var(--terra);font-weight:500}
+  .sec-title{font-size:clamp(30px,4.5vw,52px);letter-spacing:-.01em}
+  .sec-intro{max-width:560px;color:var(--ink-soft);margin-bottom:46px;font-size:18px}
+
+  /* ---- about ---- */
+  .about{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+  .about-portrait{aspect-ratio:4/5;overflow:hidden;border-radius:3px;box-shadow:0 24px 50px -28px var(--shadow)}
+  .about p{margin-bottom:18px;font-size:18px}
+  .about p.lead{font-family:'Fraunces',serif;font-size:24px;line-height:1.4;color:var(--ink)}
+  .about-meta{display:flex;gap:36px;margin-top:30px;flex-wrap:wrap}
+  .about-meta div span{display:block}
+  .meta-k{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+  .meta-v{font-family:'Fraunces',serif;font-size:21px}
+
+  /* ---- galleries by package ---- */
+  .pkg-block{margin-bottom:72px}
+  .pkg-block:last-child{margin-bottom:0}
+  .pkg-bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+    border-top:1px solid var(--line);padding-top:18px;margin-bottom:24px;flex-wrap:wrap}
+  .pkg-name{font-size:clamp(24px,3.4vw,36px)}
+  .pkg-name em{font-style:italic;color:var(--terra)}
+  .pkg-meta{font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+  .pkg-meta b{color:var(--ink);font-weight:600}
+  .grid{display:grid;gap:14px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .cell{overflow:hidden;border-radius:3px;cursor:pointer;background:var(--paper-2);box-shadow:0 12px 30px -20px var(--shadow)}
+  .cell img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .cell:hover img{transform:scale(1.05)}
+  .tall{aspect-ratio:4/5}
+  .wide{aspect-ratio:3/2}
+  .sq{aspect-ratio:1/1}
+  .span2{grid-column:span 2}
+
+  /* ---- packages / pricing ---- */
+  .packages{background:var(--ink);color:#f1ebe0}
+  .packages .sec-num{color:#e0a08c}
+  .packages .sec-intro{color:#c3b8a8}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    border:1px solid #3b322b;border-radius:6px;padding:30px 26px;
+    display:flex;flex-direction:column;background:#2a231d;transition:.25s;
+  }
+  .card:hover{transform:translateY(-5px);border-color:var(--terra)}
+  .card.feature{background:#322822;border-color:var(--terra)}
+  .card-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e0a08c;margin-bottom:16px}
+  .card h3{font-size:28px;margin-bottom:6px}
+  .card .dur{font-size:14px;color:#b3a796;margin-bottom:22px}
+  .price{font-family:'Fraunces',serif;font-size:42px;margin-bottom:4px}
+  .price small{font-size:16px;color:#b3a796}
+  .card ul{list-style:none;margin:22px 0 26px;flex:1}
+  .card li{padding:9px 0;border-top:1px solid #3b322b;font-size:15px;color:#ded3c4;display:flex;gap:10px}
+  .card li::before{content:"—";color:var(--terra)}
+  .card .pick{
+    text-align:center;text-decoration:none;border-radius:999px;padding:13px;
+    font-size:14px;letter-spacing:.05em;text-transform:uppercase;transition:.2s;
+    border:1px solid #5a4d42;color:#f1ebe0;
+  }
+  .card .pick:hover{background:#f1ebe0;color:var(--ink)}
+  .card.feature .pick{background:var(--terra);border-color:var(--terra)}
+  .card.feature .pick:hover{background:#fff;color:var(--ink)}
+  .price-note{text-align:center;margin-top:30px;font-size:14px;color:#9d9182}
+
+  /* ---- booking form ---- */
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .book-copy h2{font-size:clamp(30px,4.5vw,52px);margin-bottom:18px}
+  .book-copy p{color:var(--ink-soft);margin-bottom:16px;max-width:420px}
+  .book-list{list-style:none;margin-top:24px}
+  .book-list li{padding:12px 0;border-top:1px solid var(--line);font-size:15px;display:flex;gap:12px;align-items:center}
+  .book-list li b{font-family:'Fraunces',serif;color:var(--terra);font-size:18px}
+  form{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:32px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;background:var(--paper);border:1px solid var(--line);border-radius:5px;
+    padding:12px 14px;font-family:inherit;font-size:16px;color:var(--ink);transition:.2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(168,68,42,.12)}
+  .field textarea{resize:vertical;min-height:90px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .submit{
+    width:100%;background:var(--ink);color:var(--paper);border:none;border-radius:999px;
+    padding:15px;font-family:inherit;font-size:15px;letter-spacing:.05em;text-transform:uppercase;
+    cursor:pointer;transition:.2s;
+  }
+  .submit:hover{background:var(--terra)}
+  .form-hint{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:14px}
+
+  /* ---- footer ---- */
+  footer{background:var(--paper-2);border-top:1px solid var(--line);padding:54px 0 36px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+  .foot-brand{font-family:'Fraunces',serif;font-size:30px}
+  .foot-brand span{color:var(--terra)}
+  .foot-links{display:flex;gap:24px;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .foot-links a{text-decoration:none;color:var(--ink-soft);transition:.2s}
+  .foot-links a:hover{color:var(--terra)}
+  .foot-fine{margin-top:30px;font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:20px}
+
+  /* ---- lightbox ---- */
+  .lb{position:fixed;inset:0;background:rgba(28,23,19,.93);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+  .lb.on{display:flex}
+  .lb img{max-width:92vw;max-height:88vh;width:auto;height:auto;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .lb-x{position:absolute;top:22px;right:30px;color:#f1ebe0;font-size:34px;cursor:pointer;line-height:1;background:none;border:none}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(241,235,224,.12);border:none;color:#f1ebe0;width:50px;height:50px;border-radius:50%;font-size:22px;cursor:pointer;transition:.2s}
+  .lb-nav:hover{background:rgba(241,235,224,.25)}
+  .lb-prev{left:24px}.lb-next{right:24px}
+
+  @media(max-width:860px){
+    .nav-links,.nav-cta{display:none}
+    .menu-btn{display:block}
+    .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--paper);padding:20px 28px;gap:18px;border-bottom:1px solid var(--line)}
+    .about-grid,.book-grid{grid-template-columns:1fr;gap:36px}
+    .pgrid{grid-template-columns:1fr}
+    .g3,.g4{grid-template-columns:repeat(2,1fr)}
+    .hero-frame{aspect-ratio:4/3}
+    section{padding:64px 0}
+    .row2{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">Mikiale<span>.</span></div>
+    <div class="nav-links" id="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#packages">Packages</a>
+      <a href="#book">Book</a>
+    </div>
+    <a href="#book" class="nav-cta">Request a shoot</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Photographer · Florence, Italy</div>
+    <h1>Your Florence,<br><em>beautifully</em> remembered.</h1>
+    <p class="hero-sub">I'm a documentary and portrait photographer. I walk with you through the city's most iconic spots and capture natural, story-driven photos you'll keep for years.</p>
+    <div class="hero-frame">
+      <img src="images/hills-white-1.jpg" alt="Portrait at golden hour over the Tuscan hills near Florence">
+      <span class="hero-tag">Golden hour over the Tuscan hills</span>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Selected work, by experience</h2>
+    </div>
+    <p class="sec-intro">Each set below mirrors one of the experiences you can book — so you can see exactly the kind of images you'll walk away with.</p>
+
+    <!-- Package 1 -->
+    <div class="pkg-block">
+      <div class="pkg-bar">
+        <div class="pkg-name">The <em>Portrait Tour</em></div>
+        <div class="pkg-meta">Portraits at iconic spots · <b>natural light</b></div>
+      </div>
+      <div class="grid g3">
+        <div class="cell span2 wide"><img src="images/hills-white-2.jpg" alt="Portrait over the hills"></div>
+        <div class="cell tall"><img src="images/alley-smile.jpg" alt="Portrait in a Florence alley"></div>
+        <div class="cell tall"><img src="images/glasses-alley.jpg" alt="Portrait in the old town"></div>
+        <div class="cell span2 wide"><img src="images/couple-kiss.jpg" alt="Couple portrait"></div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="pkg-block">
+      <div class="pkg-bar">
+        <div class="pkg-name">Couples &amp; <em>Candid</em></div>
+        <div class="pkg-meta">Real moments · <b>relaxed &amp; unposed</b></div>
+      </div>
+      <div class="grid g3">
+        <div class="cell tall"><img src="images/heart-hands.jpg" alt="Candid heart-hands portrait"></div>
+        <div class="cell tall"><img src="images/walking-skirt.jpg" alt="Candid portrait walking through the old town"></div>
+        <div class="cell tall"><img src="images/bench-phone.jpg" alt="Candid moment on a Florence bench"></div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="pkg-block">
+      <div class="pkg-bar">
+        <div class="pkg-name">The <em>Street &amp; Documentary</em></div>
+        <div class="pkg-meta">Editorial &amp; storytelling · <b>my signature style</b></div>
+      </div>
+      <div class="grid g4">
+        <div class="cell tall"><img src="images/bearded-bike-1.jpg" alt="Documentary portrait of a man with a beard"></div>
+        <div class="cell tall"><img src="images/window-man.jpg" alt="Man at a window in golden light"></div>
+        <div class="cell tall"><img src="images/tophat-2.jpg" alt="Street character in a top hat"></div>
+        <div class="cell tall"><img src="images/headwrap-bw.jpg" alt="Black and white portrait"></div>
+        <div class="cell tall"><img src="images/bearded-bike-2.jpg" alt="Street portrait with Prada storefront"></div>
+        <div class="cell tall"><img src="images/smoke-street.jpg" alt="Street scene with motion blur"></div>
+        <div class="cell tall"><img src="images/bike-old-man.jpg" alt="Older man on a bicycle in Florence"></div>
+        <div class="cell tall"><img src="images/shirtless-street.jpg" alt="Street portrait in the crowd"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">About Mikiale</h2></div>
+      <p class="lead">I started photographing in 2018 and have been chasing honest moments ever since.</p>
+      <p>I worked professionally as a photographer in Nairobi before moving to Italy, where I now live and shoot in Florence. My background is documentary photography — telling stories through real, unguarded images — and I bring that same eye to every portrait session.</p>
+      <p>That means no stiff, forced poses. I'll guide you, find the best light, and capture you as you actually are, with Florence as your backdrop.</p>
+      <div class="about-meta">
+        <div><span class="meta-k">Based in</span><span class="meta-v">Florence, IT</span></div>
+        <div><span class="meta-k">Shooting since</span><span class="meta-v">2018</span></div>
+        <div><span class="meta-k">Style</span><span class="meta-v">Documentary</span></div>
+      </div>
+    </div>
+    <div class="about-portrait"><img src="images/tophat-1.jpg" alt="A signature documentary portrait by Mikiale"></div>
+  </div>
+</section>
+
+<section id="packages" class="packages">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Packages</h2></div>
+    <p class="sec-intro">Three ways to capture your time in Florence. Every session includes a guided walk to iconic locations and professionally edited high-resolution photos.</p>
+    <div class="pgrid">
+      <div class="card">
+        <div class="card-tag">Entry</div>
+        <h3>Express Portraits</h3>
+        <div class="dur">30 minutes</div>
+        <div class="price">€65<small> /session</small></div>
+        <ul>
+          <li>1–2 iconic locations</li>
+          <li>8 edited high-res photos</li>
+          <li>Delivered within 3 days</li>
+          <li>Up to 2 people</li>
+        </ul>
+        <a href="#book" class="pick" data-pkg="Express Portraits (30 min)">Request this</a>
+      </div>
+      <div class="card feature">
+        <div class="card-tag">Most popular</div>
+        <h3>Portrait Walk</h3>
+        <div class="dur">1 hour</div>
+        <div class="price">€120<small> /session</small></div>
+        <ul>
+          <li>3–4 iconic locations</li>
+          <li>15 edited high-res photos</li>
+          <li>Delivered within 3 days</li>
+          <li>Up to 4 people</li>
+        </ul>
+        <a href="#book" class="pick" data-pkg="Portrait Walk (1 hour)">Request this</a>
+      </div>
+      <div class="card">
+        <div class="card-tag">Premium</div>
+        <h3>The Full Story</h3>
+        <div class="dur">1.5–2 hours</div>
+        <div class="price">€200<small> /session</small></div>
+        <ul>
+          <li>5+ iconic locations</li>
+          <li>30 edited high-res photos</li>
+          <li>Delivered within 3 days</li>
+          <li>Up to 6 people</li>
+        </ul>
+        <a href="#book" class="pick" data-pkg="The Full Story (1.5–2 hours)">Request this</a>
+      </div>
+    </div>
+    <p class="price-note">Prices are introductory while I build my reviews. Custom sessions (proposals, families, special occasions) on request.</p>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap book-grid">
+    <div class="book-copy">
+      <div class="sec-head"><span class="sec-num">04</span></div>
+      <h2>Request to book</h2>
+      <p>Tell me a little about what you're after, and I'll get back to you to confirm the date, meeting point, and details.</p>
+      <ul class="book-list">
+        <li><b>1.</b> Send your request below</li>
+        <li><b>2.</b> I reply to confirm availability &amp; details</li>
+        <li><b>3.</b> We meet, shoot, and you get your photos</li>
+      </ul>
+    </div>
+    <form id="bookForm">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="date">Preferred date</label>
+          <input type="date" id="date" name="date">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="pkg">Package</label>
+          <select id="pkg" name="pkg">
+            <option>Express Portraits (30 min)</option>
+            <option selected>Portrait Walk (1 hour)</option>
+            <option>The Full Story (1.5–2 hours)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="people">People</label>
+          <input type="number" id="people" name="people" min="1" value="2">
+        </div>
+      </div>
+      <div class="field">
+        <label for="msg">Anything else?</label>
+        <textarea id="msg" name="msg" placeholder="Occasion, ideas, questions…"></textarea>
+      </div>
+      <button type="submit" class="submit">Send request</button>
+      <p class="form-hint">Opens your email app to send — no account needed.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Mikiale Gebreyesus<span>.</span></div>
+        <p style="color:var(--ink-soft);margin-top:8px;font-size:15px">Documentary &amp; portrait photography — Florence, Italy</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://instagram.com/gebreyesus.mikiale" target="_blank" rel="noopener">Instagram</a>
+        <a href="#work">Work</a>
+        <a href="#book">Book</a>
+      </div>
+    </div>
+    <p class="foot-fine">© <span id="yr"></span> Mikiale Gebreyesus. All photographs are my own work.</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbx" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbprev" aria-label="Previous">‹</button>
+  <img id="lbimg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbnext" aria-label="Next">›</button>
+</div>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // mobile menu
+  document.getElementById('menuBtn').addEventListener('click',()=>{
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('navlinks').classList.remove('open');
+  }));
+
+  // package pick -> set select + scroll
+  document.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>{
+    const v=b.dataset.pkg; const sel=document.getElementById('pkg');
+    [...sel.options].forEach(o=>{if(o.value===v||o.text===v)sel.value=o.value});
+  }));
+
+  // booking form -> mailto
+  document.getElementById('bookForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const f=e.target;
+    const subject=`Photoshoot request — ${f.pkg.value}`;
+    const body=
+`Hi Mikiale,
+
+I'd like to request a photoshoot.
+
+Name: ${f.name.value}
+Email: ${f.email.value}
+Preferred date: ${f.date.value||'(flexible)'}
+Package: ${f.pkg.value}
+People: ${f.people.value}
+
+Message:
+${f.msg.value||'(none)'}
+`;
+    window.location.href=`mailto:hello@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  // lightbox
+  const cells=[...document.querySelectorAll('.cell img')];
+  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+  let idx=0;
+  function show(i){idx=(i+cells.length)%cells.length;lbimg.src=cells[idx].src;lbimg.alt=cells[idx].alt;}
+  cells.forEach((im,i)=>im.parentElement.addEventListener('click',()=>{lb.classList.add('on');show(i);}));
+  document.getElementById('lbx').onclick=()=>lb.classList.remove('on');
+  document.getElementById('lbnext').onclick=e=>{e.stopPropagation();show(idx+1);};
+  document.getElementById('lbprev').onclick=e=>{e.stopPropagation();show(idx-1);};
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('on');});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')lb.classList.remove('on');
+    if(e.key==='ArrowRight')show(idx+1);
+    if(e.key==='ArrowLeft')show(idx-1);
+  });
+</script>
+</body>
+</html>
